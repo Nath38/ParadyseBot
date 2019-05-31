@@ -329,7 +329,7 @@ client.on("message", message => {
 
 client.on('message', message => {
   if (message.content === prefix + 'workshop') {
-    message.channel.send('Le workshop: https://steamcommunity.com/sharedfiles/filedetails/?id=1483869936')
+    message.reply('Le workshop: https://steamcommunity.com/sharedfiles/filedetails/?id=1483869936')
     message.delete()
   }
 })
