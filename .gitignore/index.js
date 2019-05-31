@@ -77,6 +77,7 @@ client.on('message', message => {
       .addField('membre', 'Pour savoir combien somme ton sur le serveur')
       .addField('serveur', "Pour plus d'information sur le serveur")
       .addField('youtubeur', 'Pour demander à avoir le grade de YouTubeur')
+      .addField('workshop', 'Lien du workshop')
       .addField('help2', 'Commande administrateur')
       .setTimestamp()
       message.delete()
@@ -327,7 +328,7 @@ client.on("message", message => {
 })
 
 client.on('message', message => {
-  if (message.content === prefix + 'membre') {
+  if (message.content === prefix + 'workshop') {
     message.channel.send('Le workshop: https://steamcommunity.com/sharedfiles/filedetails/?id=1483869936')
     message.delete()
   }
