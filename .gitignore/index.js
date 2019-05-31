@@ -326,4 +326,11 @@ client.on("message", message => {
 }
 })
 
+client.on('message', message => {
+  if (message.content === prefix + 'membre') {
+    message.channel.send('Le workshop: https://steamcommunity.com/sharedfiles/filedetails/?id=1483869936')
+    message.delete()
+  }
+})
+
 client.login(process.env.TOKEN);
