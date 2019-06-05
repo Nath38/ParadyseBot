@@ -348,7 +348,7 @@ client.on('message', async message => {
     .setTimestamp()
     .setColor('RANDOM')
     .addField('Annonce à lire', messageToBot);
-    message.delete()
+    message.delete().catch()
   }
 });
 
