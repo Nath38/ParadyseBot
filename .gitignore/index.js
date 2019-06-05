@@ -349,4 +349,20 @@ client.on('message', async message => {
   }
 });
 
+client.on('message', message => {
+  if (message..content === prefix + 'poll')
+  if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Vous n'avez pas la permission d'utiliser cette commande.");
+  if (!args[0]) return message.channel.send(`Syntaxe <prefix>poll question`)
+
+  const pollEmbed = new Discord.RichEmbed()
+  .setTitle(`Sondage crée par ${message.author.username}`)
+  .setColor('RAMDOM')
+  .setFooter('Appuyer sur les r"actions ci-dessous.')
+  .setDescription(args.join(' '));
+
+  let msg = await message.channel.send(pollEmbed0)
+  await msg.react('✅')
+  await msg.react('❌')
+});
+
 client.login(process.env.TOKEN);
