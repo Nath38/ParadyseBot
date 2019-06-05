@@ -350,7 +350,7 @@ client.on('message', async message => {
 });
 
 client.on('message', message => {
-  if (message..content === prefix + 'poll')
+  if (message.content === prefix + 'poll')
   if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Vous n'avez pas la permission d'utiliser cette commande.");
   if (!args[0]) return message.channel.send(`Syntaxe <prefix>poll question`)
 
