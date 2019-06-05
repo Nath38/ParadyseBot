@@ -335,6 +335,9 @@ client.on('message', message => {
 })
 
 client.on('message', message => {
+  let args = message.content.trim().split(/ +/g)
+  
+  
   if (message.content === prefix + "say"){
   if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Vous n'avez pas la permission d'utiliser cette commande.");
   let messageToBot = args.join(" ");
