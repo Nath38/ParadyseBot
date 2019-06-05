@@ -360,7 +360,7 @@ client.on('message', message => {
   .setFooter('Appuyer sur les r"actions ci-dessous.')
   .setDescription(args.join(' '));
 
-  let msg = await message.channel.send(pollEmbed0)
+  let msg = await message.channel.send(pollEmbed)
   await msg.react('✅')
   await msg.react('❌')
 });
