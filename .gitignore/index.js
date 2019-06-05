@@ -334,16 +334,21 @@ client.on('message', message => {
   }
 })
 
-client.on('message', message => {
-  let args = message.content.trim().split(/ +/g)
-  
-  
-  if (message.content === prefix + "say"){
-  if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Vous n'avez pas la permission d'utiliser cette commande.");
-  let messageToBot = args.join(" ");
-  if (!messageToBot) return message.channel.send("Veuillez indiquer un message.")
-  message.delete().catch();
-  message.channel.send(messageToBot);
+client.on('message', async message => {
+  if(message.content.startsWith(prefix + 'say')){
+
+    var args = message.content.split(" ").slice(1);
+    var messageToBot = args.join(' ');
+
+    if(!message.guild.member(message.author).hasPermission('ADMINISTRATOR')) return message.channel.send("Tu ne peux pas utiliser cette commande.");
+    if(!messageToBot) return message.channel.send('Precise un message !')
+
+    var say = new Discord.RichEmbed()
+    .setFooter('Commande exécuter par : ' + message.author.tag, message.author.avatarURL)
+    .setTimestamp()
+    .setColor('RANDOM')
+    .addField('Annonce à lire', messageToBot);
+    message.delete()
   }
 });
 
