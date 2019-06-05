@@ -339,7 +339,8 @@ client.on('message', message => {
   if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Vous n'avez pas la permission d'utiliser cette commande.");
   let messageToBot = args.join(" ");
   message.delete().catch();
-  message.channel.send(messageToBot); 
+  message.channel.send(messageToBot);
+  }
 });
 
 client.login(process.env.TOKEN);
