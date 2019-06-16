@@ -15,6 +15,12 @@ client.on('ready', () => {
   console.log('Joue à p.help')
 })
 
+client.on('guildMemberAdd', member =>{
+  var role = member.guild.roles.find('name', 'joueur')
+  member.addRole(role)
+  
+});
+
 /*Kick*/
 client.on('message',message =>{
   if (!message.guild) return
