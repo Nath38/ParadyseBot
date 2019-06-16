@@ -73,7 +73,7 @@ client.on('message', message => {
       var help_embed = new Discord.RichEmbed()
       .setColor('RANDOM')
       .setTitle('Voici les commandes !')
-      .setDescription('Mon prefix est **p.** et pour utiliser un commande faites **p.<Commande>**')
+      .setDescription('Mon prefix est **' + prefix + '** et pour utiliser un commande faites **' + prefix +'<Commande>**')
       .setFooter('Commande exécuter par : ' + message.author.tag, message.author.avatarURL)
       .addField('ping', "Pour s'avoir le ping du bot")
       .addField('avatar', 'Pour avoir votre avatar')
