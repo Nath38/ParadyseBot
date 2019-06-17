@@ -307,8 +307,8 @@ client.on('message', message => {
 })
 
 client.on('message', message => {
-  var role = member.guild.roles.find('name', 'Joueur')
-  member.addRole(role)
+  var ytbatt = member.guild.roles.find('name', 'Joueur')
+  member.addRole(ytbatt)
   message.channel.send("Un membre du staff vérifiera si vous êtes bien YouTubeur")
   }
   console.error()
