@@ -307,9 +307,8 @@ client.on('message', message => {
 })
 
 client.on('message', message => {
-  if (message.content === prefix + 'youtubeur')
-  if ('Youtube attente') {
-  message.member.addRole('577207063046914069')
+  var role = member.guild.roles.find('name', 'Joueur')
+  member.addRole(role)
   message.channel.send("Un membre du staff vérifiera si vous êtes bien YouTubeur")
   }
   console.error()
