@@ -307,6 +307,7 @@ client.on('message', message => {
 })
 
 client.on('message', message => {
+  if (message.content === prefix + "youtubeur"){
   if(!message.member.hasPermission("MANAGE_ROLES")) return message.channel.send("Vous n'avez pas la permission d'utiliser cette commande.")
   let member = message.mentions.members.first()
   if(!member) return message.channel.send("Membre introuvable")
