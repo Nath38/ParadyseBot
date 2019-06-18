@@ -96,7 +96,7 @@ client.on('message', message => {
       var help_embed = new Discord.RichEmbed()
       .setColor('RANDOM')
       .setTitle('Voici les commandes administrateur !')
-      .setDescription("Mon prefix est **p.** et pour utiliser un commande faites **p.<Commande>**")
+      .setDescription("Mon prefix est **' + prefix + '** et pour utiliser un commande faites **' + prefix +'<Commande>**")
       .setFooter('Commande exécuter par : ' + message.author.tag, message.author.avatarURL)
       .addField('clear', 'Clear des message')
       .addField('mute', 'Mute un joueur')
