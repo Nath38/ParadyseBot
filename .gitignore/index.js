@@ -307,7 +307,12 @@ client.on('message', message => {
 })
 
 client.on('message', message => {
-  var ytbatt = member.guild.roles.find('name', 'Joueur')
+  if(!message.member.hasPermission("MANAGE_ROLES")) return message.channel.send("Vous n'avez pas la permission d'utiliser cette commande.")
+  let member = message.mentions.members.first()
+  if(!member) return message.channel.send("Membre introuvable")
+  if(member.highestRole.calculatedPosition >= message.member.highestRole.calculatedPosition && message.author.id !== message.guild.ownerID) return message.channel.send("Vous ne pouvez pas accepter ce membre.")
+  if(member.highestRole.calculatedPosition >= message.guild.me.highestRole.calculatedPosition || member.id === message.guild.ownerID) return message.channel.send("Je ne pas accepter ce membre.")
+  var ytbatt = member.guild.roles.find('name', 'Youtube attente')
   member.addRole(ytbatt)
   message.channel.send("Un membre du staff vérifiera si vous êtes bien YouTubeur")
   }
