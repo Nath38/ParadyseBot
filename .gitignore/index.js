@@ -3,6 +3,7 @@ const fs = require('fs')
 const client = new Discord.Client()
 
 var prefix = ('p.')
+var dispatcher;
 
 const warns = JSON.parse(fs.readFileSync('./warns.json'))
 
@@ -361,6 +362,38 @@ client.on('message', async message => {
     message.channel.send(say);
   }
 });
+
+client.on('message', message => {
+    if(message.content[0] === prefix) {
+        let splitMessage = message.content.split(" ");
+        if(splitMessage[0] === '!play') {
+            if(splitMessage.length === 2)
+        {
+            if(message.member.voiceChannel)
+        {
+            message.member.voiceChannel.join().then(connection => {
+                dispatcher = connection.playArbitraryInput(splitMessage[1]);
+
+                dispatcher.on('end', e => {
+                    dispatcher = undefined;
+                    console.log('Fin du son')
+                });
+            }).catch(console.log);
+        }                
+        else
+            sendError(message, "Erreur, voud devez d'abord rejoindre un channel vocal");
+        }
+        else
+            sendError(message, "Erreur, probleme de paramètres");
+        } 
+        else if(splitMessage[0] === '!pause')
+            if(dispatcher !== undefined)
+                dispatcher.pause();
+    }
+    else if(splitMessage[0] === '!resume')
+        if(dispatcher !== undefined)
+            dispatcher.resume();
+})
 
 //client.on('message', message => {
   //if (message.content === prefix + 'poll')
