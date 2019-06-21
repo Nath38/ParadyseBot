@@ -390,9 +390,9 @@ client.on('message', message => {
             if(dispatcher !== undefined)
                 dispatcher.pause();
     }
-    else if(splitMessage[0] === '!resume')
-        if(dispatcher !== undefined)
-            dispatcher.resume();
+    //else if(splitMessage[0] === '!resume')
+        //if(dispatcher !== undefined)
+            //dispatcher.resume();
 })
 
 //client.on('message', message => {
