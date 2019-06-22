@@ -1,11 +1,8 @@
 const Discord = require('discord.js')
 const fs = require('fs')
 const client = new Discord.Client()
-const ytdl = require('ytdl-core');
-const queue = new Map();
 
 var prefix = ('p.')
-var dispatcher;
 
 const warns = JSON.parse(fs.readFileSync('./warns.json'))
 
