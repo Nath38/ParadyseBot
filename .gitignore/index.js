@@ -4,7 +4,7 @@ const client = new Discord.Client()
 
 var prefix = ('p.')
 
-const warns = JSON.parse(fs.readFileSync('./warns.json'))
+const warns = JSON.parse(fs.readFileSync(process.env.WARN))
 
 client.on('ready', () => {
   console.log('Le bot est prêt!')
