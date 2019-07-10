@@ -369,7 +369,7 @@ client.on('message', message => {
       .setTitle('Voici mes informations !')
       .setDescription('')
       .setFooter('Commande exécuter par : ' + message.author.tag, message.author.avatarURL)
-      .addField('Crée par:', " @[Paradyse Community] nathofgamer#6001 ")
+      .addField('Crée par:', "<@!315211194518470677>")
       .addField('Donations', " https://www.paypal.me/Chauchet ")
       .setTimestamp()
       message.delete()
