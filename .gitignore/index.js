@@ -84,6 +84,7 @@ client.on('message', message => {
       .addField('serveur', "Pour plus d'information sur le serveur")
       .addField('youtubeur', 'Pour demander à avoir le grade de YouTubeur')
       .addField('workshop', 'Lien du workshop')
+      .addField('infos', 'Information sur le bot')
       .addField('help2', 'Commande administrateur')
       .setTimestamp()
       message.delete()
