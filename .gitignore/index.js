@@ -362,4 +362,19 @@ client.on('message', async message => {
   }
 });
 
+client.on('message', message => {
+    if (message.content === prefix + infos') {
+      var help_embed = new Discord.RichEmbed()
+      .setColor('RANDOM')
+      .setTitle('Voici les commandes !')
+      .setDescription('Mon prefix est **' + prefix + '** et pour utiliser un commande faites **' + prefix +'<Commande>**')
+      .setFooter('Commande exécuter par : ' + message.author.tag, message.author.avatarURL)
+      .addField('Crée par:', " @[Paradyse Community] nathofgamer#6001 ")
+      .addField('Donations', " https://www.paypal.me/Chauchet ")
+      .setTimestamp()
+      message.delete()
+      message.channel.send(help_embed);
+    }
+  })
+
 client.login(process.env.TOKEN);
