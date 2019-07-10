@@ -363,7 +363,7 @@ client.on('message', async message => {
 });
 
 client.on('message', message => {
-    if (message.content === prefix + infos') {
+    if (message.content === prefix + 'infos') {
       var infos_embed = new Discord.RichEmbed()
       .setColor('RANDOM')
       .setTitle('Voici les commandes !')
