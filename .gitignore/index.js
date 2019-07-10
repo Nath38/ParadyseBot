@@ -364,7 +364,7 @@ client.on('message', async message => {
 
 client.on('message', message => {
     if (message.content === prefix + infos') {
-      var help_embed = new Discord.RichEmbed()
+      var infos_embed = new Discord.RichEmbed()
       .setColor('RANDOM')
       .setTitle('Voici les commandes !')
       .setDescription('Mon prefix est **' + prefix + '** et pour utiliser un commande faites **' + prefix +'<Commande>**')
@@ -373,7 +373,7 @@ client.on('message', message => {
       .addField('Donations', " https://www.paypal.me/Chauchet ")
       .setTimestamp()
       message.delete()
-      message.channel.send(help_embed);
+      message.channel.send(infos_embed);
     }
   })
 
