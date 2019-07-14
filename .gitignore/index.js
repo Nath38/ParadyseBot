@@ -2,7 +2,19 @@ const Discord = require('discord.js')
 const fs = require('fs')
 const client = new Discord.Client()
 
-var prefix = ('p.')
+const Dispatcher = new Commander.Dispatcher({
+    discord: Discord,
+    prefix: 'p.',
+    responseOn: {
+        prefix: true,
+        mention: true
+    },
+    commands: Commands,
+    deleteCommand: true,
+    options: {
+        client: Client
+    }
+});
 
 const warns = JSON.parse(fs.readFileSync(process.env.WARN))
 const Commands = new Commander.Commands(Client, '315211194518470677');
