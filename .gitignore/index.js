@@ -1,6 +1,7 @@
 const Discord = require('discord.js')
 const fs = require('fs')
 const client = new Discord.Client()
+const Commander = require('discordjs-commanderjs');
 
 const Dispatcher = new Commander.Dispatcher({
     discord: Discord,
