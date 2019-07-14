@@ -5,6 +5,7 @@ const client = new Discord.Client()
 var prefix = ('p.')
 
 const warns = JSON.parse(fs.readFileSync(process.env.WARN))
+const Commands = new Commander.Commands(Client, '315211194518470677');
 
 client.on('ready', () => {
   console.log('Le bot est prêt!')
