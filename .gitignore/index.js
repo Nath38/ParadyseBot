@@ -25,7 +25,7 @@ client.on('ready', () => {
 });
 
 client.on('ready', () => {
-  client.user.setGame('p.help')
+  client.user.setGame('p.help', 'https://www.twitch.tv/nathofgamer')
   console.log('Joue à p.help')
 })
 
