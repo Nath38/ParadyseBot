@@ -1,24 +1,10 @@
 const Discord = require('discord.js')
 const fs = require('fs')
 const client = new Discord.Client()
-const Commander = require('discordjs-commanderjs');
 
-const Dispatcher = new Commander.Dispatcher({
-    discord: Discord,
-    prefix: 'p.',
-    responseOn: {
-        prefix: true,
-        mention: true
-    },
-    commands: Commands,
-    deleteCommand: true,
-    options: {
-        client: client
-    }
-});
+var prefix = "p."
 
-const warns = JSON.parse(fs.readFileSync(process.env.WARN))
-const Commands = new Commander.Commands(Client, '315211194518470677');
+const warns = JSON.parse(fs.readFileSync('./warns.json'))
 
 client.on('ready', () => {
   console.log('Le bot est prêt!')
@@ -41,6 +27,7 @@ client.on('message',message =>{
   let args = message.content.trim().split(/ +/g)
 
   if (args[0].toLocaleLowerCase() === prefix + 'kick'){
+    message.delete()
      if (!message.member.hasPermission('KICK_MEMBERS')) return message.channel.send("Vous n'avez pas la permission d'utiliser cette commande ;(")
      let member = message.mentions.members.first()
      if (!member) return message.channel.send("Veuillez mentionner un utilisateur :x:")
@@ -57,6 +44,7 @@ client.on('message',message =>{
   let args = message.content.trim().split(/ +/g)
 
   if (args[0].toLocaleLowerCase() === prefix + 'ban'){
+    message.delete()
      if (!message.member.hasPermission('BAN_MEMBERS')) return message.channel.send("Vous n'avez pas la permission d'utiliser cette commande ;(")
      let member = message.mentions.members.first()
      if (!member) return message.channel.send("Veuillez mentionner un utilisateur :x:")
@@ -100,6 +88,7 @@ client.on('message', message => {
       .addField('youtubeur', 'Pour demander à avoir le grade de YouTubeur')
       .addField('workshop', 'Lien du workshop')
       .addField('infos', 'Information sur le bot')
+      .addField('infractions', "Toutes les infractions d'un joueur")
       .addField('help2', 'Commande administrateur')
       .setTimestamp()
       message.delete()
@@ -112,7 +101,7 @@ client.on('message', message => {
       var help_embed = new Discord.RichEmbed()
       .setColor('RANDOM')
       .setTitle('Voici les commandes administrateur !')
-      .setDescription("Mon prefix est **' + prefix + '** et pour utiliser un commande faites **' + prefix +'<Commande>**")
+      .setDescription("Mon prefix est **" + prefix + "** et pour utiliser un commande faites **" + prefix +"<Commande>**")
       .setFooter('Commande exécuter par : ' + message.author.tag, message.author.avatarURL)
       .addField('clear', 'Clear des message')
       .addField('mute', 'Mute un joueur')
@@ -136,10 +125,8 @@ client.on('message', message => {
       .setTitle('Les informations de ParadyseNoRP')
       .setDescription('Voici toutes les informations de ParadyseNoRP')
       .setFooter('Commande exécuter par : ' + message.author.tag, message.author.avatarURL)
-      .addField('Nathofgamer', 'Fondateur de ParadyseNoRP')
-      .addField('Titidu200', 'Co-Fondateur de ParadyseNoRP')
-      .addField('Furax', "Superadmin de ParadyseNoRP")
-      .addField('195.201.85.95:25593', 'IP de ParadyseNoRP #3')
+      .addField('Fondateur de Paradyse', "<@!315211194518470677>")
+      .addField('Co-Fondateur de Paradyse', "<@!328449832903770113>")
       .setThumbnail()
       message.delete()
       message.channel.send(info_embed);
@@ -186,6 +173,7 @@ client.on("message", message => {
   }
 
   if (args[0].toLowerCase() === prefix + "mute") {
+    message.delete()
       if (!message.member.hasPermission('MANAGE_MESSAGES')) return message.channel.send("Vous n'avez pas la permission d'utiliser cette commande")
       let member = message.mentions.members.first()
       if (!member) return message.channel.send("Membre introuvable")
@@ -224,6 +212,7 @@ client.on("message", message => {
     let args = message.content.trim().split(/ +/g)
  
     if (args[0].toLowerCase() === prefix + "warn") {
+      message.delete()
         if (!message.member.hasPermission('MANAGE_MESSAGES')) return message.channel.send("Vous n'avez pas la permission d'utiliser cette commande")
         let member = message.mentions.members.first()
         if (!member) return message.channel.send("Veuillez mentionner un membre")
@@ -244,17 +233,20 @@ client.on("message", message => {
     }
  
     if (args[0].toLowerCase() === prefix + "infractions") {
+      message.delete()
         if (!message.member.hasPermission('MANAGE_MESSAGES')) return message.channel.send("Vous n'avez pas la permission d'utiliser cette commande")
         let member = message.mentions.members.first()
         if (!member) return message.channel.send("Veuillez mentionner un membre")
         let embed = new Discord.RichEmbed()
             .setAuthor(member.user.username, member.user.displayAvatarURL)
+            .setFooter('Commande exécuter par : ' + message.author.tag, message.author.avatarURL)
             .addField('10 derniers warns', ((warns[member.id]) ? warns[member.id].slice(0, 10).map(e => e.reason) : "Ce membre n'a aucun warns"))
             .setTimestamp()
         message.channel.send(embed)
     }
         //unmute
         if(args[0].toLowerCase() === prefix + "unmute"){
+          message.delete()
           if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.channel.send("Vous n'avez pas la permission d'utiliser cette commande.")
           let member = message.mentions.members.first()
           if(!member) return message.channel.send("Membre introuvable")
@@ -269,6 +261,7 @@ client.on("message", message => {
    
       //unwarn
       if(args[0].toLowerCase() === prefix + "unwarn"){
+        message.delete()
           let member = message.mentions.members.first()
           if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.channel.send("Vous n'avez pas la permission d'utiliser cette commande.")
           if(!member) return message.channel.send("Membre introuvable")
@@ -333,6 +326,7 @@ client.on('message', message => {
 
 client.on("message", message => {
   if (message.content === prefix + "accepter"){
+    message.delete()
   if(!message.member.hasPermission("MANAGE_ROLES")) return message.channel.send("Vous n'avez pas la permission d'utiliser cette commande.")
   let member = message.mentions.members.first()
   if(!member) return message.channel.send("Membre introuvable")
