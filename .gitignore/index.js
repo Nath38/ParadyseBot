@@ -12,7 +12,7 @@ const Dispatcher = new Commander.Dispatcher({
     commands: Commands,
     deleteCommand: true,
     options: {
-        client: Client
+        client: client
     }
 });
 
