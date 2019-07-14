@@ -323,12 +323,10 @@ client.on('message', message => {
 })
 
 client.on('message', message => {
-  if (message.content === prefix + "youtubeur")
+  if (message.content === prefix + "youtubeur") {
   var ytbatt = member.guild.roles.find('name', 'Youtube attente')
   member.addRole(ytbatt)
   message.channel.send("Un membre du staff vérifiera si vous êtes bien YouTubeur")
-  }
-  }
   console.error()
 })
 
