@@ -327,8 +327,9 @@ client.on('message', message => {
   var ytbatt = member.guild.roles.find('name', 'Youtube attente')
   member.addRole(ytbatt)
   message.channel.send("Un membre du staff vérifiera si vous êtes bien YouTubeur")
+  }
   console.error()
-}
+})
 
 client.on("message", message => {
   if (message.content === prefix + "accepter"){
@@ -387,4 +388,4 @@ client.on('message', message => {
     }
   })
 
-client.login(process.env.TOKEN)
+client.login(process.env.TOKEN);
