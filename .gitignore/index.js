@@ -328,7 +328,7 @@ client.on('message', message => {
   member.addRole(ytbatt)
   message.channel.send("Un membre du staff vérifiera si vous êtes bien YouTubeur")
   console.error()
-})
+}
 
 client.on("message", message => {
   if (message.content === prefix + "accepter"){
