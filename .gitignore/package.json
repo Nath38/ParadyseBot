@@ -5,7 +5,8 @@
   "dependencies": {
     "discord.js": "^11.4.2",
     "discordjs-commanderjs": "^3.0.0",
-    "fs": "0.0.1-security"
+    "fs": "0.0.1-security",
+    "node.js": 10.16.0"
   },
   "devDependencies": {},
   "scripts": {
