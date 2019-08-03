@@ -63,14 +63,14 @@ client.on('message', message => {
   })
 
 client.on('message', message => {
-    if (message.content === prefix + 'help') {
-      var help_embed = new Discord.RichEmbed()
+    if (message.content === prefix + 'ping') {
+      var ping_embed = new Discord.RichEmbed()
       .setColor('RANDOM')
       .setFooter('Commande exécuter par : ' + message.author.tag, message.author.avatarURL)
       .addField('Le ping du bot est de :', Math.round(client.ping) + 'ms')
       .setTimestamp()
       message.delete()
-      message.channel.send(help_embed);
+      message.channel.send(ping_embed);
     }
   })
 
