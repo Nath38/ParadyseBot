@@ -92,6 +92,7 @@ client.on('message', message => {
       .addField('workshop', 'Lien du workshop')
       .addField('infos', 'Information sur le bot')
       .addField('infractions', "Toutes les infractions d'un joueur")
+      .addField('ip', "Pour connaître l'ip du serveur")
       .addField('help2', 'Commande administrateur')
       .setTimestamp()
       message.delete()
@@ -384,5 +385,12 @@ client.on('message', message => {
       message.channel.send(infos_embed);
     }
   })
+
+client.on('message', message => {
+  if (message.content === prefix + 'ip') {
+    message.channel.send("L'IP du serveur est 51.77.2.200")
+    message.delete()
+  }
+})
 
 client.login(process.env.TOKEN);
