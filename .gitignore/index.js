@@ -393,4 +393,11 @@ client.on('message', message => {
   }
 })
 
+client.on('message', message => {
+  if (message.content === prefix + 'mc') {
+    message.channel.send("Le discord du serveur Minecraft")
+    message.delete()
+  }
+})
+
 client.login(process.env.TOKEN);
